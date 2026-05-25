@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Monev Kerja Sama OJK 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+<style>
+:root{--primary:#003F87;--primary-light:#005EB8;--primary-pale:#E8F0FB;--secondary:#00796B;--secondary-light:#A5D6D2;--secondary-pale:#E0F2F1;--tertiary:#E65100;--tertiary-pale:#FFF3E0;--success:#2E7D32;--success-pale:#E8F5E9;--error:#C62828;--error-pale:#FFEBEE;--surface:#fff;--surface-dim:#F5F5F5;--on-surface:#1A1A1A;--on-surface-variant:#616161;--outline:#BDBDBD;--outline-variant:#E0E0E0;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Roboto',sans-serif;background:#FAFAFA;color:var(--on-surface);font-size:14px;line-height:1.5;}
+.app-bar{background:var(--primary);color:#fff;padding:0 16px;height:64px;display:flex;align-items:center;position:sticky;top:0;z-index:100;box-shadow:0 2px 4px rgba(0,0,0,.1),0 8px 16px rgba(0,0,0,.1);}
+.app-bar-title{font-size:20px;font-weight:500;display:flex;align-items:center;gap:12px;}
+.app-bar-badge{background:rgba(255,255,255,.25);padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;font-family:'Roboto Mono';}
+.app-bar-spacer{margin-left:auto;font-size:13px;opacity:.7;}
+.sk-screen{min-height:calc(100vh - 64px);display:flex;align-items:center;justify-content:center;padding:24px;}
+.sk-card{background:var(--surface);border-radius:12px;box-shadow:0 2px 4px rgba(0,0,0,.1),0 4px 12px rgba(0,0,0,.08);padding:40px;width:100%;max-width:480px;}
+.sk-icon{width:56px;height:56px;background:var(--primary-pale);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:24px;}
+.sk-card h1{font-size:24px;font-weight:500;text-align:center;margin-bottom:8px;}
+.sk-card p{color:var(--on-surface-variant);font-size:14px;text-align:center;margin-bottom:28px;}
+.form-field{margin-bottom:20px;}
+.form-field label{display:block;font-size:12px;font-weight:500;color:var(--on-surface);margin-bottom:6px;letter-spacing:.4px;}
+.form-field label .req{color:var(--error);}
+.form-field input[type=text],.form-field input[type=date],.form-field select,.form-field textarea{width:100%;padding:12px 16px;border:1px solid var(--outline-variant);border-radius:4px;font-family:inherit;font-size:14px;color:var(--on-surface);background:var(--surface);transition:border-color .2s,box-shadow .2s;}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(0,63,135,.08);}
+.form-field input[readonly]{background:var(--surface-dim);color:var(--on-surface-variant);cursor:default;}
+.form-field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23616161' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:40px;background-size:20px;}
+.form-field textarea{resize:vertical;min-height:80px;font-family:inherit;}
+.btn{padding:10px 24px;border:none;border-radius:4px;font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:all .2s;letter-spacing:.5px;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;}
+.btn-primary{background:var(--primary);color:#fff;}
+.btn-primary:hover{background:var(--primary-light);box-shadow:0 4px 8px rgba(0,0,0,.15);}
+.btn-primary:active{transform:scale(.98);}
+.btn-primary:disabled{background:#BDBDBD;cursor:not-allowed;}
+.btn-secondary{background:transparent;border:1px solid var(--outline);color:var(--on-surface);}
+.btn-secondary:hover{background:var(--surface-dim);}
+.btn-icon{width:40px;height:40px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:8px;}
+.btn-icon.small{width:32px;height:32px;}
+.mi{font-family:'Material Icons Outlined';font-weight:normal;font-style:normal;font-size:24px;display:inline-block;line-height:1;text-transform:none;letter-spacing:normal;word-wrap:normal;white-space:nowrap;direction:ltr;}
+.mi.small{font-size:20px;}
+.app{display:none;}
+.app.on{display:block;}
+.app-container{max-width:1200px;margin:0 auto;}
+.satker-bar{background:var(--primary-pale);border-bottom:1px solid var(--outline-variant);padding:12px 16px;display:flex;align-items:center;gap:12px;}
+.satker-badge{background:var(--primary);color:#fff;font-family:'Roboto Mono';font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;}
+.satker-label{font-size:13px;color:var(--on-surface-variant);}
+.tabs{background:var(--surface);border-bottom:1px solid var(--outline-variant);padding:0 16px;display:flex;overflow-x:auto;}
+.tab{padding:12px 16px;font-size:14px;font-weight:500;color:var(--on-surface-variant);border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:8px;transition:all .2s;}
+.tab:hover{color:var(--on-surface);}
+.tab.active{color:var(--primary);border-bottom-color:var(--primary);}
+.tab.active.secondary{color:var(--secondary);border-bottom-color:var(--secondary);}
+.tab.active.tertiary{color:var(--tertiary);border-bottom-color:var(--tertiary);}
+.tab-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.tab-count{background:var(--surface-dim);border-radius:12px;padding:2px 8px;font-size:12px;font-family:'Roboto Mono';color:var(--on-surface-variant);min-width:24px;text-align:center;}
+.content{padding:24px 16px;}
+.panel{display:none;}
+.panel.active{display:block;}
+.panel-header{margin-bottom:28px;}
+.panel-header h2{font-size:20px;font-weight:500;margin-bottom:4px;}
+.panel-header p{font-size:14px;color:var(--on-surface-variant);}
+.form-card{background:var(--surface);border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,.06);overflow:hidden;margin-bottom:24px;}
+.form-card-header{padding:16px;border-bottom:1px solid var(--outline-variant);background:var(--surface-dim);display:flex;align-items:center;gap:12px;}
+.form-card-title{font-size:14px;font-weight:500;flex:1;}
+.form-card-body{padding:20px;}
+.form-card-footer{padding:16px 20px;border-top:1px solid var(--outline-variant);background:var(--surface-dim);display:flex;justify-content:flex-end;gap:12px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:0;}
+.form-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:0;}
+.form-row.full{grid-template-columns:1fr;}
+.section-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--on-surface-variant);margin:24px 0 16px;display:flex;align-items:center;gap:12px;}
+.section-label::after{content:'';flex:1;height:1px;background:var(--outline-variant);}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:16px;font-size:12px;font-weight:500;background:var(--primary-pale);color:var(--primary);border:1px solid #C5D5EE;}
+.chip.secondary{background:var(--secondary-pale);color:var(--secondary);border-color:#A5D6D2;}
+.chip.tertiary{background:var(--tertiary-pale);color:var(--tertiary);border-color:#FFCC80;}
+.chip-remove{background:none;border:none;cursor:pointer;font-size:16px;color:inherit;opacity:.6;padding:0;line-height:1;font-weight:normal;}
+.chip-remove:hover{opacity:1;}
+.chip-display{display:flex;flex-wrap:wrap;gap:8px;padding:8px 12px;min-height:40px;border:1px solid var(--outline-variant);border-radius:4px;background:var(--surface-dim);}
+.chip-input-box{display:flex;flex-wrap:wrap;gap:6px;padding:8px 12px;min-height:42px;border:1px solid var(--outline-variant);border-radius:4px;background:var(--surface);cursor:text;transition:border-color .2s,box-shadow .2s;}
+.chip-input-box:focus-within{border-color:var(--primary);box-shadow:0 0 0 3px rgba(0,63,135,.08);}
+.chip-input-box input{border:none;outline:none;background:transparent;font-family:inherit;font-size:14px;color:var(--on-surface);flex:1;min-width:100px;padding:0;}
+.chip-dd{position:absolute;top:100%;left:0;right:0;background:var(--surface);border:1px solid var(--outline);border-top:1px solid var(--outline-variant);border-radius:0 0 4px 4px;max-height:240px;overflow-y:auto;z-index:100;box-shadow:0 8px 16px rgba(0,0,0,.15);display:none;margin-top:-1px;}
+.chip-dd.on{display:block;}
+.chip-dd-item{padding:12px 16px;cursor:pointer;border-bottom:1px solid var(--outline-variant);transition:background .2s;}
+.chip-dd-item:last-child{border-bottom:none;}
+.chip-dd-item:hover{background:var(--surface-dim);}
+.chip-dd-code{font-family:'Roboto Mono';font-size:12px;color:var(--primary);font-weight:500;margin-bottom:2px;}
+.chip-dd-name{font-size:13px;color:var(--on-surface-variant);}
+.ss-wrap{position:relative;}
+.ss-trigger{width:100%;padding:12px 16px;border:1px solid var(--outline-variant);border-radius:4px;font-family:inherit;font-size:14px;color:var(--on-surface);background:var(--surface);cursor:pointer;text-align:left;display:flex;align-items:center;justify-content:space-between;transition:border-color .2s,box-shadow .2s;min-height:48px;text-transform:none;}
+.ss-trigger:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(0,63,135,.08);}
+.ss-trigger.open{border-color:var(--primary);border-bottom-color:transparent;border-radius:4px 4px 0 0;}
+.ss-val{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.ss-val.placeholder{color:var(--on-surface-variant);}
+.ss-arrow{color:var(--on-surface-variant);font-size:20px;flex-shrink:0;margin-left:8px;transition:transform .2s;}
+.ss-trigger.open .ss-arrow{transform:rotate(180deg);}
+.ss-clear{color:var(--on-surface-variant);font-size:20px;flex-shrink:0;margin-left:6px;line-height:1;cursor:pointer;padding:4px;}
+.ss-clear:hover{color:var(--on-surface);}
+.ss-panel{position:absolute;top:100%;left:0;right:0;background:var(--surface);border:1px solid var(--outline);border-top:none;border-radius:0 0 4px 4px;z-index:200;box-shadow:0 8px 16px rgba(0,0,0,.15);display:none;flex-direction:column;margin-top:-1px;}
+.ss-panel.on{display:flex;}
+.ss-search-wrap{padding:8px 8px;border-bottom:1px solid var(--outline-variant);background:var(--surface-dim);}
+.ss-search{width:100%;padding:8px 12px;border:1px solid var(--outline-variant);border-radius:4px;font-family:inherit;font-size:14px;background:var(--surface);}
+.ss-search:focus{outline:none;border-color:var(--primary);}
+.ss-list{max-height:280px;overflow-y:auto;}
+.ss-item{padding:12px 16px;cursor:pointer;border-bottom:1px solid var(--outline-variant);transition:background .2s;}
+.ss-item:last-child{border-bottom:none;}
+.ss-item:hover,.ss-item.focused{background:var(--surface-dim);}
+.ss-item.selected{background:var(--primary-pale);}
+.ss-no{font-family:'Roboto Mono';font-size:12px;color:var(--primary);font-weight:500;margin-bottom:4px;display:flex;align-items:center;gap:6px;}
+.ss-ttl{font-size:14px;color:var(--on-surface);line-height:1.4;}
+.ss-mtr{font-size:13px;color:var(--on-surface-variant);margin-top:2px;}
+.ss-empty{padding:16px;text-align:center;color:var(--on-surface-variant);font-size:14px;}
+.ss-count{font-size:12px;color:var(--on-surface-variant);padding:8px 16px;border-top:1px solid var(--outline-variant);background:var(--surface-dim);text-align:right;}
+.status-badge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:4px;font-weight:500;}
+.st-aktif{background:var(--success-pale);color:var(--success);}
+.st-nonaktif{background:var(--error-pale);color:var(--error);}
+.st-diperbarui{background:#E3F2FD;color:#1565C0;}
+.rl-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:0;}
+.rl-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border:1px solid var(--outline-variant);border-radius:4px;cursor:pointer;transition:all .2s;background:var(--surface);}
+.rl-item:hover{border-color:var(--outline);background:var(--surface-dim);}
+.rl-item.checked{border-color:var(--primary);background:var(--primary-pale);}
+.rl-item input[type=checkbox]{width:18px;height:18px;flex-shrink:0;margin-top:1px;accent-color:var(--primary);cursor:pointer;}
+.rl-item span{font-size:13px;color:var(--on-surface);line-height:1.4;}
+.rl-empty{color:var(--on-surface-variant);font-size:13px;padding:12px;text-align:center;border:1px dashed var(--outline-variant);border-radius:4px;}
+.rl-note{font-size:12px;color:var(--on-surface-variant);margin-top:6px;}
+.upload-area{border:2px dashed var(--outline);border-radius:8px;padding:32px 16px;text-align:center;cursor:pointer;transition:all .2s;background:var(--surface-dim);}
+.upload-area:hover,.upload-area.drag{border-color:var(--primary);background:var(--primary-pale);}
+.upload-icon{font-size:40px;margin-bottom:8px;}
+.upload-text{font-size:14px;font-weight:500;color:var(--on-surface);margin-bottom:4px;}
+.upload-sub{font-size:13px;color:var(--on-surface-variant);}
+.file-list{margin-top:12px;display:flex;flex-direction:column;gap:8px;}
+.file-item{display:flex;align-items:center;gap:12px;padding:10px 12px;background:var(--surface);border:1px solid var(--outline-variant);border-radius:4px;font-size:13px;}
+.file-icon{font-size:20px;flex-shrink:0;}
+.file-name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--on-surface);}
+.file-size{font-size:12px;color:var(--on-surface-variant);flex-shrink:0;}
+.file-rm{background:none;border:none;cursor:pointer;font-size:18px;color:var(--on-surface-variant);padding:2px;flex-shrink:0;}
+.file-rm:hover{color:var(--error);}
+.export-bar{background:var(--surface);border-top:1px solid var(--outline-variant);padding:16px;display:flex;align-items:center;gap:12px;position:sticky;bottom:0;box-shadow:0 -2px 4px rgba(0,0,0,.06);}
+.export-info{font-size:14px;color:var(--on-surface-variant);flex:1;}
+.export-info strong{color:var(--on-surface);}
+.toast{position:fixed;bottom:80px;right:16px;background:#323232;color:#fff;padding:12px 16px;border-radius:4px;font-size:14px;font-weight:500;z-index:9999;transform:translateY(20px);opacity:0;transition:all .25s;display:flex;align-items:center;gap:8px;}
+.toast.show{transform:none;opacity:1;}
+.help-text{font-size:12px;color:var(--on-surface-variant);margin-top:4px;}
+.info-box{background:var(--primary-pale);border-left:4px solid var(--primary);padding:12px 16px;border-radius:4px;margin-bottom:20px;font-size:13px;color:var(--primary);display:flex;align-items:flex-start;gap:12px;}
+@media(max-width:768px){.form-row,.form-row-3{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header class="app-bar">
+  <div class="app-bar-title">
+    <span class="app-bar-badge">OJK</span>
+    Form Monitoring &amp; Evaluasi Kerja Sama
+  </div>
+  <div class="app-bar-spacer">Tahun 2025</div>
+</header>
+
+<div class="sk-screen" id="skScreen">
+  <div class="sk-card">
+    <div class="sk-icon">🏛️</div>
+    <h1>Selamat Datang</h1>
+    <p>Pilih Satuan Kerja Anda untuk mulai mengisi laporan monitoring dan evaluasi kerja sama tahun 2025.</p>
+    <div class="form-field">
+      <label>Satuan Kerja <span class="req">*</span></label>
+      <select id="skSel" onchange="onSkChange()">
+        <option value="">— Pilih Satker —</option>
+      </select>
+    </div>
+    <div class="form-field" id="ukerFld" style="display:none;">
+      <label>Unit Kerja (Uker)</label>
+      <select id="ukerSel">
+        <option value="">— Pilih Uker (opsional) —</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" id="btnMasuk" disabled onclick="masuk()" style="width:100%;">
+      <span class="mi">arrow_forward</span> Masuk ke Form
+    </button>
+  </div>
+</div>
+
+<div class="app" id="app">
+  <div class="satker-bar">
+    <span class="satker-badge" id="skTag"></span>
+    <span class="satker-label" id="skSub"></span>
+    <button class="btn btn-secondary" onclick="ganti()" style="margin-left:auto;">
+      <span class="mi small">edit</span> Ganti Satker
+    </button>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" data-t="impl" onclick="tab('impl')">
+      <span class="tab-dot" style="background:var(--primary);"></span>
+      Form Implementasi
+      <span class="tab-count" id="c-impl">0</span>
+    </div>
+    <div class="tab" data-t="perp" onclick="tab('perp')">
+      <span class="tab-dot" style="background:var(--secondary);"></span>
+      Form Perpanjangan
+      <span class="tab-count" id="c-perp">0</span>
+    </div>
+    <div class="tab" data-t="baru" onclick="tab('baru')">
+      <span class="tab-dot" style="background:var(--tertiary);"></span>
+      Form Dokumen Baru
+      <span class="tab-count" id="c-baru">0</span>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="app-container">
+      <div class="panel active" id="p-impl">
+        <div class="panel-header">
+          <h2>Form Implementasi Kerja Sama</h2>
+          <p>Catat kegiatan implementasi dari dokumen kerja sama yang aktif.</p>
+        </div>
+        <div id="list-impl"></div>
+        <div class="form-card">
+          <div class="form-card-header">
+            <span class="mi">add_circle_outline</span>
+            <span class="form-card-title">Tambah Entri Implementasi</span>
+          </div>
+          <div class="form-card-body">
+            <div class="info-box"><span class="mi small">info</span><span>Pilih Nomor Dokumen untuk mengisi field lainnya secara otomatis</span></div>
+            <div class="form-row">
+              <div class="form-field"><label>Nomor Dokumen <span class="req">*</span></label><div class="ss-wrap" id="ss-i"><button type="button" class="ss-trigger" id="ssTrig-i" onclick="toggleSS('i')"><span class="ss-val placeholder" id="ssVal-i">Pilih nomor dokumen...</span><span class="ss-clear" id="ssClear-i" onclick="clearSS(event,'i')" style="display:none;">close</span><span class="ss-arrow mi small">expand_more</span></button><div class="ss-panel" id="ssPanel-i"><div class="ss-search-wrap"><input class="ss-search" id="ssSearch-i" placeholder="Cari nomor, judul, atau mitra..." oninput="filterSS('i')" onclick="event.stopPropagation()"></div><div class="ss-list" id="ssList-i"></div><div class="ss-count" id="ssCount-i"></div></div></div><input type="hidden" id="iNomor"></div>
+              <div class="form-field"><label>Uker Pelapor</label><input type="text" id="iUker" placeholder="Kode unit kerja (opsional)"></div>
+            </div>
+            <div class="form-field"><label>Jenis Dokumen</label><input type="text" id="iJenis" readonly placeholder="Otomatis dari nomor dokumen"></div>
+            <div class="form-field"><label>Judul Dokumen</label><input type="text" id="iJudul" readonly placeholder="Otomatis dari nomor dokumen"></div>
+            <div class="form-field"><label>Mitra</label><input type="text" id="iMitra" readonly placeholder="Otomatis dari nomor dokumen"></div>
+            <div class="form-field"><label>Implementasi Kerja Sama <span class="req">*</span></label><textarea id="iKegiatan" placeholder="Uraikan kegiatan implementasi yang telah dilaksanakan..."></textarea></div>
+            <div class="form-row">
+              <div class="form-field"><label>Tanggal Implementasi</label><input type="date" id="iTgl"></div>
+              <div class="form-field"><label>Satker Terkait</label><div class="chip-input-wrap" style="position:relative;"><div class="chip-input-box" id="iSatkerChips" onclick="focusSatkerInput()"><input type="text" id="iSatkerInput" placeholder="Pilih satker..." autocomplete="off" oninput="filterSatkerDD()" onfocus="showSatkerDD()"></div><div class="chip-dd" id="iSatkerDD"></div></div><input type="hidden" id="iSatkerTerkait"></div>
+            </div>
+            <div class="form-field"><label>Kendala Implementasi</label><textarea id="iKendala" placeholder="Kendala yang dihadapi (jika ada)..."></textarea></div>
+            <div class="section-label">Ruang Lingkup Kerja Sama</div>
+            <div id="iRLContainer"><div class="rl-empty">Pilih Nomor Dokumen terlebih dahulu untuk menampilkan pilihan ruang lingkup.</div></div>
+            <p class="rl-note" id="iRLNote" style="display:none;">Pilih ruang lingkup yang sesuai dengan kegiatan implementasi (maks. 6)</p>
+            <div class="form-field" style="margin-top:20px;"><label>Keterangan</label><input type="text" id="iKet" placeholder="Keterangan tambahan (opsional)"></div>
+            <div class="section-label">Dokumen Pendukung</div>
+            <div class="form-field"><label>Upload Berkas PDF</label><div class="upload-area" id="iUploadArea" onclick="document.getElementById('iFileInput').click()" ondragover="dragOver(event)" ondrop="dropFiles(event)"><div class="upload-icon">📎</div><div class="upload-text">Klik atau seret berkas ke sini</div><div class="upload-sub">Format: PDF · Bisa multiple file</div></div><input type="file" id="iFileInput" accept=".pdf" multiple style="display:none" onchange="handleFiles(this.files)"><div class="file-list" id="iFileList"></div></div>
+          </div>
+          <div class="form-card-footer">
+            <button class="btn btn-secondary" onclick="clearF('i')">Bersihkan</button>
+            <button class="btn btn-primary" onclick="save('impl')"><span class="mi small">check</span> Simpan Entri</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" id="p-perp">
+        <div class="panel-header">
+          <h2>Form Dokumen Perpanjangan</h2>
+          <p>Ajukan perpanjangan untuk dokumen kerja sama yang akan habis masa berlakunya.</p>
+        </div>
+        <div id="list-perp"></div>
+        <div class="form-card">
+          <div class="form-card-header">
+            <span class="mi">add_circle_outline</span>
+            <span class="form-card-title">Tambah Permohonan Perpanjangan</span>
+          </div>
+          <div class="form-card-body">
+            <div class="info-box"><span class="mi small">info</span><span>Pilih Nomor Dokumen untuk mengisi field lainnya secara otomatis</span></div>
+            <div class="form-row">
+              <div class="form-field"><label>Nomor Dokumen <span class="req">*</span></label><div class="ss-wrap" id="ss-p"><button type="button" class="ss-trigger" id="ssTrig-p" onclick="toggleSS('p')"><span class="ss-val placeholder" id="ssVal-p">Pilih nomor dokumen...</span><span class="ss-clear" id="ssClear-p" onclick="clearSS(event,'p')" style="display:none;">close</span><span class="ss-arrow mi small">expand_more</span></button><div class="ss-panel" id="ssPanel-p"><div class="ss-search-wrap"><input class="ss-search" id="ssSearch-p" placeholder="Cari nomor, judul, atau mitra..." oninput="filterSS('p')" onclick="event.stopPropagation()"></div><div class="ss-list" id="ssList-p"></div><div class="ss-count" id="ssCount-p"></div></div></div><input type="hidden" id="pNomor"></div>
+              <div class="form-field"><label>Uker Pelapor</label><input type="text" id="pUker" placeholder="Kode unit kerja (opsional)"></div>
+            </div>
+            <div class="form-field"><label>Jenis Dokumen</label><input type="text" id="pJenis" readonly placeholder="Otomatis dari nomor dokumen"></div>
+            <div class="form-field"><label>Judul Dokumen</label><input type="text" id="pJudul" readonly placeholder="Otomatis dari nomor dokumen"></div>
+            <div class="form-field"><label>Tanggal Selesai Dokumen</label><input type="text" id="pTglDoc" readonly placeholder="Otomatis dari dataset"></div>
+            <div class="form-field"><label>Mitra</label><div class="chip-display" id="pMitraChips"></div><input type="hidden" id="pMitra"></div>
+            <div class="form-field"><label>Alasan Perpanjangan <span class="req">*</span></label><textarea id="pAlasan" placeholder="Jelaskan alasan mengapa dokumen ini perlu diperpanjang..."></textarea></div>
+          </div>
+          <div class="form-card-footer">
+            <button class="btn btn-secondary" onclick="clearF('p')">Bersihkan</button>
+            <button class="btn btn-primary" onclick="save('perp')" style="background:var(--secondary);"><span class="mi small">check</span> Simpan Entri</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" id="p-baru">
+        <div class="panel-header">
+          <h2>Form Dokumen Kerja Sama Baru</h2>
+          <p>Usulkan dokumen kerja sama baru (MoU, PKS, KAK, dll)</p>
+        </div>
+        <div id="list-baru"></div>
+        <div class="form-card">
+          <div class="form-card-header">
+            <span class="mi">add_circle_outline</span>
+            <span class="form-card-title">Tambah Usulan Dokumen Baru</span>
+          </div>
+          <div class="form-card-body">
+            <div class="form-row">
+              <div class="form-field"><label>Jenis Dokumen <span class="req">*</span></label><select id="bJenis"><option value="">— Pilih Jenis Dokumen —</option></select></div>
+              <div class="form-field"><label>Uker Pelapor</label><input type="text" id="bUker" placeholder="Kode unit kerja (opsional)"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-field"><label>Kategori Kemitraan <span class="req">*</span></label><select id="bKategori"><option value="">— Pilih Kategori —</option></select></div>
+              <div class="form-field"><label>Mitra <span class="req">*</span></label><div class="chip-input-wrap" style="position:relative;"><div class="chip-input-box" id="bMitraChips" onclick="document.getElementById('bMitraInput').focus()"><input type="text" id="bMitraInput" placeholder="Ketik nama mitra, Enter untuk tambah..." onkeydown="handleMitraKey(event)"></div></div><div class="help-text">Tekan Enter untuk menambah mitra</div><input type="hidden" id="bMitra"></div>
+            </div>
+            <div class="form-field"><label>Alasan Usulan Dokumen Baru <span class="req">*</span></label><textarea id="bAlasan" placeholder="Uraikan latar belakang dan kebutuhan dokumen kerja sama baru ini..."></textarea></div>
+            <div class="form-field"><label>Usulan Ruang Lingkup Dokumen</label><textarea id="bRL" placeholder="Uraikan ruang lingkup kerja sama yang diusulkan..."></textarea></div>
+          </div>
+          <div class="form-card-footer">
+            <button class="btn btn-secondary" onclick="clearF('b')">Bersihkan</button>
+            <button class="btn btn-primary" onclick="save('baru')" style="background:var(--tertiary);"><span class="mi small">check</span> Simpan Entri</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="export-bar">
+    <div class="export-info" id="expInfo">Belum ada data yang diisi.</div>
+    <button class="btn btn-secondary" onclick="expJSON()">{ } JSON</button>
+    <button class="btn btn-primary" onclick="expCSV()"><span class="mi small">download</span> CSV</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+const INDUK_MAP={};
+DB.satker.forEach(s=>{if(s.induk&&s.induk!=='None'){if(!INDUK_MAP[s.induk])INDUK_MAP[s.induk]=[];INDUK_MAP[s.induk].push(s);}});
+let SK=null;
+let DATA={impl:[],perp:[],baru:[]};
+
+(function(){
+  const sel=document.getElementById('skSel');
+  if(DB.satker) DB.satker.forEach(s=>{const o=document.createElement('option');o.value=s.kode;o.textContent=s.nama?s.kode+' — '+s.nama:s.kode;sel.appendChild(o);});
+  ['bJenis'].forEach(id=>{const el=document.getElementById(id);
+    if(DB.jenis_dokumen) DB.jenis_dokumen.forEach(j=>{const o=document.createElement('option');o.value=j;o.textContent=j;el.appendChild(o);});
+  });
+  const bKat=document.getElementById('bKategori');
+  if(DB.kategori_kemitraan) DB.kategori_kemitraan.forEach(k=>{const o=document.createElement('option');o.value=k;o.textContent=k;bKat.appendChild(o);});
+  
+  renderAll();
+})();
+
+function onSkChange() {
+  const sk = document.getElementById('skSel').value;
+  const btn = document.getElementById('btnMasuk');
+  const ukerFld = document.getElementById('ukerFld');
+  const ukerSel = document.getElementById('ukerSel');
+  if (!sk) {
+    btn.disabled = true;
+    ukerFld.style.display = 'none';
+    return;
+  }
+  btn.disabled = false;
+  if (INDUK_MAP[sk]) {
+    ukerFld.style.display = 'block';
+    ukerSel.innerHTML = '<option value="">— Pilih Uker (opsional) —</option>';
+    INDUK_MAP[sk].forEach(u => {
+      const o = document.createElement('option');
+      o.value = u.kode;
+      o.textContent = u.kode + ' - ' + (u.nama || '');
+      ukerSel.appendChild(o);
+    });
+  } else {
+    ukerFld.style.display = 'none';
+  }
+}
+
+function masuk() {
+  const sk = document.getElementById('skSel').value;
+  const uker = document.getElementById('ukerSel').value;
+  if (!sk) return;
+  SK = uker || sk;
+  document.getElementById('skTag').textContent = SK;
+  const sObj = (DB.satker||[]).find(s => s.kode === SK);
+  document.getElementById('skSub').textContent = sObj ? sObj.nama : '';
+  
+  document.getElementById('skScreen').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  
+  document.getElementById('iUker').value = SK;
+  document.getElementById('pUker').value = SK;
+  document.getElementById('bUker').value = SK;
+  
+  renderSS('i');
+  renderSS('p');
+}
+
+function ganti() {
+  document.getElementById('skScreen').style.display = 'flex';
+  document.getElementById('app').style.display = 'none';
+}
+
+function tab(t) {
+  document.querySelectorAll('.tab').forEach(el => el.classList.remove('active', 'secondary', 'tertiary'));
+  document.querySelectorAll('.panel').forEach(el => el.classList.remove('active'));
+  
+  const cur = document.querySelector(`.tab[data-t="${t}"]`);
+  if(t==='impl') cur.classList.add('active');
+  if(t==='perp') cur.classList.add('active', 'secondary');
+  if(t==='baru') cur.classList.add('active', 'tertiary');
+  
+  document.getElementById('p-'+t).classList.add('active');
+}
+
+function toggleSS(t) {
+  const p = document.getElementById('ssPanel-'+t);
+  const trig = document.getElementById('ssTrig-'+t);
+  if(p.classList.contains('on')){
+    p.classList.remove('on');
+    trig.classList.remove('open');
+  } else {
+    document.querySelectorAll('.ss-panel.on').forEach(el=>el.classList.remove('on'));
+    document.querySelectorAll('.ss-trigger.open').forEach(el=>el.classList.remove('open'));
+    p.classList.add('on');
+    trig.classList.add('open');
+    document.getElementById('ssSearch-'+t).focus();
+  }
+}
+
+function clearSS(e, t) {
+  if(e) e.stopPropagation();
+  document.getElementById('ssVal-'+t).textContent = 'Pilih nomor dokumen...';
+  document.getElementById('ssVal-'+t).classList.add('placeholder');
+  document.getElementById('ssClear-'+t).style.display = 'none';
+  if(t==='i') {
+    document.getElementById('iNomor').value = '';
+    document.getElementById('iJenis').value = '';
+    document.getElementById('iJudul').value = '';
+    document.getElementById('iMitra').value = '';
+    document.getElementById('iRLContainer').innerHTML = '<div class="rl-empty">Pilih Nomor Dokumen terlebih dahulu untuk menampilkan pilihan ruang lingkup.</div>';
+    document.getElementById('iRLNote').style.display = 'none';
+  } else if (t==='p') {
+    document.getElementById('pNomor').value = '';
+    document.getElementById('pJenis').value = '';
+    document.getElementById('pJudul').value = '';
+    document.getElementById('pTglDoc').value = '';
+    document.getElementById('pMitra').value = '';
+    document.getElementById('pMitraChips').innerHTML = '';
+  }
+}
+
+function selectSS(t, doc) {
+  document.getElementById('ssVal-'+t).textContent = doc.nomor + ' - ' + doc.judul;
+  document.getElementById('ssVal-'+t).classList.remove('placeholder');
+  document.getElementById('ssClear-'+t).style.display = 'block';
+  
+  if(t==='i') {
+    document.getElementById('iNomor').value = doc.nomor;
+    document.getElementById('iJenis').value = doc.jenis;
+    document.getElementById('iJudul').value = doc.judul;
+    document.getElementById('iMitra').value = doc.mitra;
+    
+    if(DB.ruang_lingkup && DB.ruang_lingkup[doc.nomor]) {
+      let rls = DB.ruang_lingkup[doc.nomor];
+      if(Array.isArray(rls)) {
+        let html = '<div class="rl-grid">';
+        rls.forEach((r, idx) => { html += `<label class="rl-item"><input type="checkbox" name="iRL" value="${idx}"><span>${r}</span></label>`; });
+        html += '</div>';
+        document.getElementById('iRLContainer').innerHTML = html;
+        document.getElementById('iRLNote').style.display = 'block';
+      }
+    }
+  } else if(t==='p') {
+    document.getElementById('pNomor').value = doc.nomor;
+    document.getElementById('pJenis').value = doc.jenis;
+    document.getElementById('pJudul').value = doc.judul;
+    document.getElementById('pTglDoc').value = doc.tgl_selesai;
+    document.getElementById('pMitra').value = doc.mitra;
+    
+    const chips = doc.mitra.split(';').map(m => m.trim()).filter(m => m);
+    document.getElementById('pMitraChips').innerHTML = chips.map(m => `<span class="chip">${m}</span>`).join('');
+  }
+  toggleSS(t);
+}
+
+function renderSS(t, q='') {
+  const list = document.getElementById('ssList-'+t);
+  let docs = DB.kerjasama || [];
+  if(q) {
+    q = q.toLowerCase();
+    docs = docs.filter(d => (d.nomor||'').toLowerCase().includes(q) || (d.judul||'').toLowerCase().includes(q) || (d.mitra||'').toLowerCase().includes(q));
+  }
+  list.innerHTML = '';
+  docs.forEach(d => {
+    const el = document.createElement('div');
+    el.className = 'ss-item';
+    el.innerHTML = `<div class="ss-no">${d.nomor} <span class="status-badge st-${(d.status||'').toLowerCase()}">${d.status}</span></div><div class="ss-ttl">${d.judul}</div><div class="ss-mtr">${d.mitra}</div>`;
+    el.onclick = () => selectSS(t, d);
+    list.appendChild(el);
+  });
+  document.getElementById('ssCount-'+t).textContent = docs.length + ' dokumen';
+}
+
+function filterSS(t) {
+  renderSS(t, document.getElementById('ssSearch-'+t).value);
+}
+
+document.addEventListener('click', e => {
+  if(!e.target.closest('.ss-wrap')) {
+    document.querySelectorAll('.ss-panel.on').forEach(el=>el.classList.remove('on'));
+    document.querySelectorAll('.ss-trigger.open').forEach(el=>el.classList.remove('open'));
+  }
+});
+
+let bMitraList = [];
+function handleMitraKey(e) {
+  if(e.key === 'Enter') {
+    e.preventDefault();
+    const val = e.target.value.trim();
+    if(val && !bMitraList.includes(val)) {
+      bMitraList.push(val);
+      renderBMitra();
+    }
+    e.target.value = '';
+  }
+}
+function renderBMitra() {
+  const wrap = document.getElementById('bMitraChips');
+  const input = document.getElementById('bMitraInput');
+  wrap.innerHTML = '';
+  bMitraList.forEach((m, i) => {
+    const el = document.createElement('span');
+    el.className = 'chip';
+    el.innerHTML = `${m} <button type="button" class="chip-remove" onclick="removeBMitra(${i})">&times;</button>`;
+    wrap.appendChild(el);
+  });
+  wrap.appendChild(input);
+  document.getElementById('bMitra').value = bMitraList.join(';');
+}
+function removeBMitra(i) { bMitraList.splice(i, 1); renderBMitra(); }
+
+let iSatkerList = [];
+function focusSatkerInput() { document.getElementById('iSatkerInput').focus(); }
+function showSatkerDD() { document.getElementById('iSatkerDD').classList.add('on'); filterSatkerDD(); }
+function hideSatkerDD() { setTimeout(() => document.getElementById('iSatkerDD').classList.remove('on'), 200); }
+function filterSatkerDD() {
+  const q = document.getElementById('iSatkerInput').value.toLowerCase();
+  const dd = document.getElementById('iSatkerDD');
+  dd.innerHTML = '';
+  let filtered = DB.satker || [];
+  if(q) filtered = filtered.filter(s => s.kode.toLowerCase().includes(q) || (s.nama && s.nama.toLowerCase().includes(q)));
+  
+  filtered.slice(0,20).forEach(s => {
+    const el = document.createElement('div');
+    el.className = 'chip-dd-item';
+    el.innerHTML = `<div class="chip-dd-code">${s.kode}</div><div class="chip-dd-name">${s.nama||''}</div>`;
+    el.onclick = () => {
+      if(!iSatkerList.find(x => x.kode === s.kode)) {
+        iSatkerList.push(s);
+        renderISatker();
+      }
+      document.getElementById('iSatkerInput').value = '';
+    };
+    dd.appendChild(el);
+  });
+}
+function renderISatker() {
+  const wrap = document.getElementById('iSatkerChips');
+  const input = document.getElementById('iSatkerInput');
+  wrap.innerHTML = '';
+  iSatkerList.forEach((s, i) => {
+    const el = document.createElement('span');
+    el.className = 'chip';
+    el.innerHTML = `${s.kode} <button type="button" class="chip-remove" onclick="removeISatker(${i})">&times;</button>`;
+    wrap.appendChild(el);
+  });
+  wrap.appendChild(input);
+  document.getElementById('iSatkerTerkait').value = iSatkerList.map(s => s.kode).join(';');
+}
+function removeISatker(i) { iSatkerList.splice(i, 1); renderISatker(); }
+document.getElementById('iSatkerInput').addEventListener('blur', hideSatkerDD);
+
+let filesData = [];
+function dragOver(e) { e.preventDefault(); e.currentTarget.classList.add('drag'); }
+function dragLeave(e) { e.currentTarget.classList.remove('drag'); }
+function dropFiles(e) { e.preventDefault(); e.currentTarget.classList.remove('drag'); handleFiles(e.dataTransfer.files); }
+function handleFiles(files) {
+  for(let f of files) { if(f.type === 'application/pdf') filesData.push(f); }
+  renderFiles();
+}
+function renderFiles() {
+  const list = document.getElementById('iFileList');
+  list.innerHTML = '';
+  filesData.forEach((f, i) => {
+    const el = document.createElement('div');
+    el.className = 'file-item';
+    el.innerHTML = `<span class="file-icon">📄</span><span class="file-name">${f.name}</span><span class="file-size">${(f.size/1024).toFixed(1)} KB</span><button type="button" class="file-rm" onclick="filesData.splice(${i},1);renderFiles()">&times;</button>`;
+    list.appendChild(el);
+  });
+}
+
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 3000);
+}
+
+function clearF(t) {
+  if(t==='i') {
+    clearSS(null, 'i');
+    document.getElementById('iKegiatan').value = '';
+    document.getElementById('iTgl').value = '';
+    document.getElementById('iKendala').value = '';
+    document.getElementById('iKet').value = '';
+    iSatkerList = []; renderISatker();
+    filesData = []; renderFiles();
+  } else if(t==='p') {
+    clearSS(null, 'p');
+    document.getElementById('pAlasan').value = '';
+  } else if(t==='b') {
+    document.getElementById('bJenis').value = '';
+    document.getElementById('bKategori').value = '';
+    document.getElementById('bAlasan').value = '';
+    document.getElementById('bRL').value = '';
+    bMitraList = []; renderBMitra();
+  }
+}
+
+function save(type) {
+  let entry = { id: Date.now(), type, timestamp: new Date().toISOString() };
+  if(type==='impl') {
+    entry.nomor = document.getElementById('iNomor').value;
+    entry.kegiatan = document.getElementById('iKegiatan').value;
+    if(!entry.nomor || !entry.kegiatan) return toast('Harap isi field wajib!');
+    entry.uker = document.getElementById('iUker').value;
+    entry.tgl = document.getElementById('iTgl').value;
+    entry.kendala = document.getElementById('iKendala').value;
+    entry.satkerTerkait = document.getElementById('iSatkerTerkait').value;
+    entry.ket = document.getElementById('iKet').value;
+    entry.files = filesData.length;
+    let rls = [];
+    document.querySelectorAll('input[name="iRL"]:checked').forEach(cb => { rls.push(cb.nextElementSibling.textContent); });
+    entry.rl = rls;
+  } else if(type==='perp') {
+    entry.nomor = document.getElementById('pNomor').value;
+    entry.alasan = document.getElementById('pAlasan').value;
+    if(!entry.nomor || !entry.alasan) return toast('Harap isi field wajib!');
+    entry.uker = document.getElementById('pUker').value;
+  } else if(type==='baru') {
+    entry.jenis = document.getElementById('bJenis').value;
+    entry.kategori = document.getElementById('bKategori').value;
+    entry.mitra = document.getElementById('bMitra').value;
+    entry.alasan = document.getElementById('bAlasan').value;
+    if(!entry.jenis || !entry.kategori || !entry.mitra || !entry.alasan) return toast('Harap isi field wajib!');
+    entry.uker = document.getElementById('bUker').value;
+    entry.rl = document.getElementById('bRL').value;
+  }
+  
+  DATA[type].push(entry);
+  toast('Entri berhasil disimpan!');
+  clearF(type.charAt(0));
+  renderAll();
+}
+
+function renderAll() {
+  document.getElementById('c-impl').textContent = DATA.impl.length;
+  document.getElementById('c-perp').textContent = DATA.perp.length;
+  document.getElementById('c-baru').textContent = DATA.baru.length;
+  
+  document.getElementById('expInfo').innerHTML = `Total <strong>${DATA.impl.length + DATA.perp.length + DATA.baru.length}</strong> entri disimpan.`;
+  
+  function renderList(type, containerId) {
+    const list = document.getElementById(containerId);
+    list.innerHTML = '';
+    DATA[type].forEach(d => {
+      const el = document.createElement('div');
+      el.style.background = 'var(--surface)';
+      el.style.padding = '12px 16px';
+      el.style.border = '1px solid var(--outline-variant)';
+      el.style.borderRadius = '4px';
+      el.style.marginBottom = '12px';
+      if(type==='impl') {
+        el.innerHTML = `<strong>${d.nomor}</strong> - ${d.kegiatan.substring(0,50)}... <div style="font-size:12px;color:var(--on-surface-variant);margin-top:4px;">${d.tgl||'-'} | ${d.files} File(s)</div>`;
+      } else if(type==='perp') {
+        el.innerHTML = `<strong>${d.nomor}</strong> - ${d.alasan.substring(0,50)}...`;
+      } else if(type==='baru') {
+        el.innerHTML = `<strong>Usulan ${d.jenis}</strong> - ${d.mitra.substring(0,50)}...`;
+      }
+      list.appendChild(el);
+    });
+  }
+  
+  renderList('impl', 'list-impl');
+  renderList('perp', 'list-perp');
+  renderList('baru', 'list-baru');
+}
+
+function expJSON() {
+  const blob = new Blob([JSON.stringify(DATA, null, 2)], {type: 'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `monev_${SK}_2025.json`;
+  a.click();
+}
+
+function expCSV() {
+  let csv = 'type,nomor,kegiatan,alasan,mitra,tgl,uker\n';
+  ['impl', 'perp', 'baru'].forEach(type => {
+    DATA[type].forEach(d => {
+      csv += `"${type}","${d.nomor||d.jenis||''}","${d.kegiatan||''}","${d.alasan||''}","${d.mitra||''}","${d.tgl||''}","${d.uker||''}"\n`;
+    });
+  });
+  const blob = new Blob([csv], {type: 'text/csv'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `monev_${SK}_2025.csv`;
+  a.click();
+}
+
+
+</script>
+</body>
+</html>

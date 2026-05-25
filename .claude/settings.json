@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm list *)",
+      "Bash(node parse-satker.js)",
+      "Bash(node parse-satker.cjs)",
+      "Bash(node check-ojki-excel.cjs)",
+      "Bash(node check-unique-impl.cjs)",
+      "Bash(node compare-rl-files.cjs)",
+      "Bash(node check-sheets.cjs)",
+      "Bash(node analyze-impl-data.cjs)",
+      "Bash(node check-perp-logic.cjs)",
+      "Bash(node check-perp-correct.cjs)",
+      "Bash(npm start *)",
+      "Bash(node extract-rl.cjs)",
+      "Bash(node update-db-rl.cjs)",
+      "Bash(node -c /Users/gebbygeovany/.gemini/antigravity/scratch/react-monev/src/db.js)"
+    ]
+  }
+}
