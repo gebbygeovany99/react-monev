@@ -15,7 +15,8 @@
       "Bash(node extract-rl.cjs)",
       "Bash(node update-db-rl.cjs)",
       "Bash(node -c /Users/gebbygeovany/.gemini/antigravity/scratch/react-monev/src/db.js)",
-      "Bash(git checkout *)"
+      "Bash(git checkout *)",
+      "Bash(node fix-db-rl.cjs)"
     ]
   }
 }

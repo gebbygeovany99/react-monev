@@ -212,8 +212,8 @@ export default function App() {
     );
   }
 
-  // Satker screen (pick satker)
-  if (!activeSK) {
+  // Satker screen (pick satker) - skip if going to Rekap mode
+  if (!activeSK && mode !== 'rekap') {
     return (
       <>
         <header className="app-bar">
@@ -240,34 +240,51 @@ export default function App() {
         <div className="app-bar-spacer">Tahun 2025</div>
       </header>
 
-      {/* Satker + mode bar */}
-      <div className="satker-bar">
-        <span className="satker-badge">{activeSK}</span>
-        <span className="satker-label">{satkerInfo?.nama}</span>
-        <div style={{ marginLeft: 'auto', display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
-          <button
-            className={`btn btn-mode${mode === 'form' ? ' btn-mode-active' : ''}`}
-            onClick={() => setMode('form')}
-            title="Isi Form"
-          >
-            <span className="mi small">edit_note</span> Isi Form
+      {/* Satker + mode bar - only show when activeSK is selected */}
+      {activeSK && (
+        <div className="satker-bar">
+          <span className="satker-badge">{activeSK}</span>
+          <span className="satker-label">{satkerInfo?.nama}</span>
+          <div style={{ marginLeft: 'auto', display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+            <button
+              className={`btn btn-mode${mode === 'form' ? ' btn-mode-active' : ''}`}
+              onClick={() => setMode('form')}
+              title="Isi Form"
+            >
+              <span className="mi small">edit_note</span> Isi Form
+            </button>
+            <button
+              className={`btn btn-mode${mode === 'rekap' ? ' btn-mode-active' : ''}`}
+              onClick={() => setMode('rekap')}
+              title="Lihat Rekap"
+            >
+              <span className="mi small">bar_chart</span> Rekap
+              {totalEntries > 0 && <span className="tab-count" style={{ marginLeft: 4 }}>{totalEntries}</span>}
+            </button>
+            <button className="btn btn-secondary" onClick={handleGantiSatker}>
+              <span className="mi small">edit</span> Ganti Satker
+            </button>
+            <button className="btn btn-danger" onClick={handleHapusSemua} title="Hapus Semua Data">
+              <span className="mi small">delete</span> Hapus Data
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Rekap mode without satker bar */}
+      {mode === 'rekap' && !activeSK && (
+        <div style={{ padding: '16px', display: 'flex', gap: 8, alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--outline)' }}>
+          <button className="btn btn-secondary" onClick={() => setMode(null)}>
+            <span className="mi small">arrow_back</span> Kembali
           </button>
-          <button
-            className={`btn btn-mode${mode === 'rekap' ? ' btn-mode-active' : ''}`}
-            onClick={() => setMode('rekap')}
-            title="Lihat Rekap"
-          >
-            <span className="mi small">bar_chart</span> Rekap
-            {totalEntries > 0 && <span className="tab-count" style={{ marginLeft: 4 }}>{totalEntries}</span>}
-          </button>
-          <button className="btn btn-secondary" onClick={handleGantiSatker}>
-            <span className="mi small">edit</span> Ganti Satker
-          </button>
+          <div style={{ flex: 1, textAlign: 'center', fontSize: 14, color: 'var(--on-surface-variant)' }}>
+            Rekap Data Semua Satker
+          </div>
           <button className="btn btn-danger" onClick={handleHapusSemua} title="Hapus Semua Data">
             <span className="mi small">delete</span> Hapus Data
           </button>
         </div>
-      </div>
+      )}
 
       {/* Rekap mode */}
       {mode === 'rekap' && (
